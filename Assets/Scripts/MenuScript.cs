@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
@@ -18,5 +19,10 @@ public class MenuScript : MonoBehaviour {
     {
         print("Bye!");
         Application.Quit();
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("TestLevel", LoadSceneMode.Additive);
     }
 }
