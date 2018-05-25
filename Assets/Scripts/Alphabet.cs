@@ -35,4 +35,16 @@ public class Alphabet : MonoBehaviour {
     {
         textUI.text = "Г";
     }
+    public void I()
+    {
+        textUI.text = "И";
+    }
+    public void R()
+    {
+        textUI.text = "Р";
+    }
+    public void II()
+    {
+        textUI.text = "Я";
+    }
 }
