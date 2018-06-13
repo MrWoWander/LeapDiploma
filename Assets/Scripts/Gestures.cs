@@ -8,15 +8,18 @@ public struct Gesture
 {
     public GameObject gestures;
     public string name;
+    public Sprite image;
 }
 
 public class Gestures : MonoBehaviour {
 
     public Slider slider;
+    public Image imageGestures;
     public Text letter;
     public Text textComplited;
     public Gesture[] gesturesArr;
     public float waitTimer;
+    public Button buttonExit;
 
     bool activeTimer = false;
     float timer;
@@ -30,6 +33,7 @@ public class Gestures : MonoBehaviour {
         textComplited.gameObject.SetActive(false);
         gestures = gesturesArr[gesturesValue].gestures;
         letter.text = gesturesArr[gesturesValue].name;
+        imageGestures.sprite = gesturesArr[gesturesValue].image;
 
     }
 
@@ -54,25 +58,33 @@ public class Gestures : MonoBehaviour {
              
                 activeTimer = false;
                 textComplited.gameObject.SetActive(false);
+                gestures.SetActive(false);
                 NextGestures();
                 timer = 0;
             }
         }
 
     }
+    
+    public void DebugFunc()
+    {
+        Debug.Log("Click!");
+    }
 
     void NextGestures()
     {
-        gestures.SetActive(false);
         gesturesValue += 1;
         if (gesturesValue < gesturesArr.Length)
         {
             gestures = gesturesArr[gesturesValue].gestures;
             letter.text = gesturesArr[gesturesValue].name;
+            imageGestures.sprite = gesturesArr[gesturesValue].image;
             gestures.SetActive(true);
         } else {
             letter.text = "WIN!";
-        }
+            imageGestures.gameObject.SetActive(false);
+            buttonExit.gameObject.SetActive(true);
+}
         testValue = 0;
     }
 
