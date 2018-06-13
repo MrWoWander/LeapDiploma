@@ -21,8 +21,8 @@ public class MenuScript : MonoBehaviour {
         Application.Quit();
     }
 
-    public void LoadLevel()
+    public void LoadLevel(string nameLevel)
     {
-        SceneManager.LoadScene("TestLevel", LoadSceneMode.Additive);
+        SceneManager.LoadScene(nameLevel, LoadSceneMode.Single);
     }
 }
