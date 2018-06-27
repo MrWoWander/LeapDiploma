@@ -37,19 +37,16 @@ public class Gestures : MonoBehaviour {
 
     }
 
-
     void Update () {
         if (slider.gameObject.activeSelf == true)
         {
             testValue += Time.deltaTime;
             slider.value = testValue;
         }
-
         if (slider.value == 1)
         {
             GesturesTrue();
         }
-
         if (activeTimer)
         {
             timer += Time.deltaTime;
